@@ -150,6 +150,57 @@ const Fields = ({
                 }}
               />
             </Control>
+            <Control
+                text = 'Database Metadata' >
+              <FieldInput
+                  id = 'input-jdbc-host'
+                  value = {get(values, 'meta.jdbcHost'
+                  )
+                  }
+                  text = 'HOST'
+                  onChange = {event                      =>                  {
+                    update({meta: {jdbcHost: event.target.value}})
+                  }                  }
+              />
+              <FieldInput
+                  id = 'input-jdbc-port'
+                  value = {get(values, 'meta.jdbcPort'
+                  )
+                  }
+                  text = 'Port'
+                  onChange = {event                      =>                  {
+                    update({meta: {jdbcPort: event.target.value}})
+                  }                  }
+              />
+              <FieldInput
+                  id = 'input-jdbc-db'
+                  value = {get(values, 'meta.jdbcDb'
+                  )
+                  }
+                  text = 'DB'
+                  onChange = {event                      =>                  {
+                    update({meta: {jdbcDb: event.target.value}})
+                  }                  }
+              />
+              <FieldInput
+                  id = 'input-jdbc-username'
+                  value = {get(values, 'meta.jdbcUsername'                  )                  }
+                  text = 'USERNAME'
+                  onChange = {event                      =>                  {
+                    update({meta: {jdbcUsername: event.target.value}})
+                  }                  }
+              />
+              <FieldInput
+                  id = 'input-jdbc-host'
+                  value = {get(values, 'meta.jdbcPassword'
+                  )
+                  }
+                  text = 'PASSWORD'
+                  onChange = {event                      =>                  {
+                    update({meta: {jdbcPassword: event.target.value}})
+                  }                  }
+              />
+              </Control>
           </div>
         </div>
         <div className='right'>

@@ -34,7 +34,7 @@ function Dependency({ refButton }) {
       {get(values, 'dependencies', []).length > 0 ? (
         <List />
       ) : (
-        <div className='no-dependency'>No dependency selected</div>
+        <div className='no-dependency'>No dependency  ddd selected</div>
       )}
     </div>
   )

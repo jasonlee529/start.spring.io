@@ -11,13 +11,6 @@ const Social = () => (
     >
       <IconGithub />
     </a>
-    <a
-      rel='noreferrer noopener'
-      target='_blank'
-      href='https://twitter.com/springboot'
-    >
-      <IconTwitter />
-    </a>
   </div>
 )
 

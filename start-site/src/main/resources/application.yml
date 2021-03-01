@@ -4,6 +4,7 @@ logging:
     org.springframework.jndi: warn
 
 server:
+  port: 8090
   compression:
     enabled: true
     mime-types: application/json,text/css,text/html
@@ -166,6 +167,16 @@ initializr:
         url: https://oss.sonatype.org/content/repositories/snapshots/
         snapshotsEnabled: true
   dependencies:
+    - name : infisa
+      content :
+        - name : infisa base
+          id : infisa-base
+          groupId : cn.infisa
+          artifactId: base
+          description: infisa基础工具包
+          starter: false
+          default: true
+          selected: true
     - name: Developer Tools
       content:
         - name: Spring Boot DevTools
@@ -263,36 +274,36 @@ initializr:
           id: web-services
           description: Facilitates contract-first SOAP development. Allows for the creation of flexible web services using one of the many ways to manipulate XML payloads.
           aliases:
-           - ws
+            - ws
           links:
-           - rel: guide
-             href: https://spring.io/guides/gs/producing-web-service/
-             description: Producing a SOAP web service
-           - rel: reference
-             href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-webservices
+            - rel: guide
+              href: https://spring.io/guides/gs/producing-web-service/
+              description: Producing a SOAP web service
+            - rel: reference
+              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-webservices
         - name: Jersey
           id: jersey
           description: Framework for developing RESTful Web Services in Java that provides support for JAX-RS APIs.
           facets:
-           - json
+            - json
           links:
-           - rel: reference
-             href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-jersey
+            - rel: reference
+              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-jersey
         - name: Vaadin
           id: vaadin
           facets:
-           - web
+            - web
           groupId: com.vaadin
           artifactId: vaadin-spring-boot-starter
           description: Java framework for building rich client apps based on Web components.
           bom: vaadin
           compatibilityRange: "[2.0.0.RELEASE,2.5.0-M1)"
           links:
-           - rel: guide
-             href: https://spring.io/guides/gs/crud-with-vaadin/
-             description: Creating CRUD UI with Vaadin
-           - rel: reference
-             href: https://vaadin.com/spring
+            - rel: guide
+              href: https://spring.io/guides/gs/crud-with-vaadin/
+              description: Creating CRUD UI with Vaadin
+            - rel: reference
+              href: https://vaadin.com/spring
     - name: Template Engines
       content:
         - name: Thymeleaf
@@ -1431,28 +1442,18 @@ initializr:
       id: war
       default: false
   javaVersions:
-    - id: 15
-      default: false
-    - id: 11
-      default: true
     - id: 1.8
       name: 8
-      default: false
+      default: true
   languages:
     - name: Java
       id: java
       default: true
-    - name: Kotlin
-      id: kotlin
-      default: false
-    - name: Groovy
-      id: groovy
-      default: false
   bootVersions:
-    - name : Latest SNAPSHOT
+    - name: Latest SNAPSHOT
       id: 2.2.0.BUILD-SNAPSHOT
       default: false
-    - name : 2.1.1.
+    - name: 2.1.1.
       id: 2.1.1.RELEASE
       default: true
 
