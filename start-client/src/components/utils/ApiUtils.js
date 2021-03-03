@@ -249,6 +249,11 @@ export const getDefaultValues = json => {
             packaging: get(json, 'packaging.default'),
             packageName: get(json, 'packageName.default'),
             java: get(json, 'javaVersion.default'),
+            jdbcHost: get(json, 'jdbcHost.default'),
+            jdbcPort: get(json, 'jdbcPort.default'),
+            jdbcDb: get(json, 'jdbcDb.default'),
+            jdbcUsername: get(json, 'jdbcUsername.default'),
+            jdbcPassword: get(json, 'jdbcPassword.default'),
         },
         dependencies: [],
     }

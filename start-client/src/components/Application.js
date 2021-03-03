@@ -54,6 +54,7 @@ export default function Application() {
       const url = `${windowsUtils.origin}/metadata/client`
       getInfo(url).then(jsonConfig => {
         const response = getConfig(jsonConfig)
+        console.log("dddddd   "+response)
         dispatchInitializr({ type: 'COMPLETE', payload: { ...response } })
         dispatch({ type: 'COMPLETE', payload: response })
       })

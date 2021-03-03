@@ -154,23 +154,19 @@ const Fields = ({
                 text = 'Database Metadata' >
               <FieldInput
                   id = 'input-jdbc-host'
-                  value = {get(values, 'meta.jdbcHost'
-                  )
-                  }
+                  value = {get(values, 'meta.jdbcHost')}
                   text = 'HOST'
-                  onChange = {event                      =>                  {
+                  onChange = {event  =>{
                     update({meta: {jdbcHost: event.target.value}})
-                  }                  }
+                  }}
               />
               <FieldInput
                   id = 'input-jdbc-port'
-                  value = {get(values, 'meta.jdbcPort'
-                  )
-                  }
+                  value = {get(values, 'meta.jdbcPort')}
                   text = 'Port'
-                  onChange = {event                      =>                  {
+                  onChange = {event =>{
                     update({meta: {jdbcPort: event.target.value}})
-                  }                  }
+                  }}
               />
               <FieldInput
                   id = 'input-jdbc-db'
