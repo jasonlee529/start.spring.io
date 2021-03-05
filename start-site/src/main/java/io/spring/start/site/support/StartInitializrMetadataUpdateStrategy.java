@@ -16,15 +16,17 @@
 
 package io.spring.start.site.support;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.spring.initializr.generator.version.Version;
 import io.spring.initializr.metadata.DefaultMetadataElement;
+import io.spring.initializr.metadata.InitializrMetadata;
 import io.spring.initializr.web.support.InitializrMetadataUpdateStrategy;
 import io.spring.initializr.web.support.SaganInitializrMetadataUpdateStrategy;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -50,4 +52,25 @@ public class StartInitializrMetadataUpdateStrategy extends SaganInitializrMetada
 		return (version.getMajor() >= 2 && version.getMinor() > 2);
 	}
 
+	@Override
+	public InitializrMetadata update(InitializrMetadata current) {
+		String url = current.getConfiguration().getEnv().getSpringBootMetadataUrl();
+		List<DefaultMetadataElement> bootVersions = customeSpringBootVersions();
+		if (bootVersions != null && !bootVersions.isEmpty()) {
+			if (bootVersions.stream().noneMatch(DefaultMetadataElement::isDefault)) {
+				// No default specified
+				bootVersions.get(0).setDefault(true);
+			}
+			current.updateSpringBootVersions(bootVersions);
+		}
+		return current;
+	}
+
+	private List<DefaultMetadataElement> customeSpringBootVersions() {
+		List<DefaultMetadataElement> res = new ArrayList<>();
+		res.add(new DefaultMetadataElement("2.1.8.RELEASE", "2.1.18.RELEASE", true));
+		res.add(new DefaultMetadataElement("2.3.9.RELEASE", "2.3.9.RELEASE", false));
+		res.add(new DefaultMetadataElement("2.4.3", "2.4.3", false));
+		return res;
+	}
 }
